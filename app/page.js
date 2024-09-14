@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FaSearch } from 'react-icons/fa';
 
 
@@ -23,8 +24,8 @@ export default function Home() {
 
       <div className="flex justify-center gap-10 ">
 
-        <button className="bg-teal-400 rounded-sm p-2 font-bold ">Login</button>
-        <button className="bg-teal-400 rounded-sm p-2 font-bold ">SignUp</button>
+        <Link href="/login"><button className="bg-teal-400 rounded-sm p-2 font-bold ">Login</button></Link>
+        <Link href="/signup"><button className="bg-teal-400 rounded-sm p-2 font-bold ">SignUp</button></Link>
 
 
       </div>
