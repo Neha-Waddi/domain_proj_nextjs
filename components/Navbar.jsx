@@ -1,24 +1,26 @@
-import React from 'react'
-import {AiFillHome} from 'react-icons/ai'
+import React from 'react';
+import { AiFillHome } from 'react-icons/ai';
+import { FaInfoCircle } from 'react-icons/fa';
 import Link from 'next/link';
 
 const Navbar = () => {
-    
   return (
-    <nav className='bg-gray-800 text-white flex justify-between px-4 py-6'>
+    <nav className="bg-teal-700 text-white flex justify-between px-4 py-10 mt-1">
+      <div className="flex items-center">
         <Link href="/">
-        <div className='text-xl font-bold' >
-                 Domain in Domain
-        </div>
+          <div className="text-xl font-bold">Domain in Domain</div>
         </Link>
+      </div>
+      <div className="flex items-center gap-6 mr-2">
         <Link href="/">
-        <div className='flex space-x-4'>
-            <AiFillHome className='text-2xl'/>
-        </div>
+          <AiFillHome className="text-3xl" />
         </Link>
-     </nav>
+        <Link href="/info">
+          <FaInfoCircle className="text-3xl" />
+        </Link>
+      </div>
+    </nav>
+  );
+};
 
-  )
-}
-
-export default Navbar
+export default Navbar;
