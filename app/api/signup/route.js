@@ -2,6 +2,7 @@ import { connectMongodb } from '@/lib/mongodb';
 import UserCredentials from '@/models/user';
 import bcrypt from 'bcryptjs';
 
+
 export async function POST(req) {
   await connectMongodb();
 

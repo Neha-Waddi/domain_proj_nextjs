@@ -3,7 +3,7 @@ import React from 'react';
 const Editdomain = () => {
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold text-center mb-6">Edit URL</h1>
+      <h1 className="text-3xl font-bold text-center mb-6">Edit Domain</h1>
       <form >
         <div className="flex flex-col justify-center items-center  gap-6">
           <div>
