@@ -94,7 +94,7 @@ export default function Signup(){
 
         { error &&(
         <div>
-          <p className="text-red-500">{error}</p>
+          <p className="text-red-500 text-center mt-4">{error}</p>
         </div>)
         }
         <Link href='/login' className='text-teal-400 hover:underline'>Already Have An Account?Login</Link>
