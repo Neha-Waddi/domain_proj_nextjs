@@ -9,11 +9,7 @@ export const POST = async (req) => {
 
   try {
     const user = await UserCredentials.findOne({ username });
-    console.log(username);
-    console.log(user);
-   console.log(newPassword);
-   console.log(confirmPassword);
-
+  
     if (!user) {
       return new Response(JSON.stringify({ message: 'User not found' }), { status: 404 });
     }
