@@ -1,14 +1,16 @@
 "use client";
 import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
+import { useSession } from "next-auth/react"; // Import useSession hook
 
 const Searchbar = () => {
+  const { data: session, status } = useSession(); // Access session data
   const [query, setQuery] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleSearch = async (e) => {
     e.preventDefault();
-    setErrorMessage(""); 
+    setErrorMessage("");
 
     if (!query) {
       setErrorMessage("Please enter a search query");
@@ -36,6 +38,11 @@ const Searchbar = () => {
     }
   };
 
+  // Check if the user is logged in
+  if (status === "loading") {
+    return <p>Loading...</p>; // Show a loading state if checking session
+  }
+
   return (
     <section className="flex flex-col justify-center items-center py-20">
       <div className="relative w-96">
@@ -44,7 +51,7 @@ const Searchbar = () => {
           placeholder="Search"
           className="w-full px-4 py-2 rounded-lg border border-teal-300 focus:outline-none focus:ring-1 focus:ring-teal-500"
           value={query}
-          onChange={(e) => setQuery(e.target.value)} 
+          onChange={(e) => setQuery(e.target.value)}
         />
         <button
           type="submit"
@@ -56,6 +63,11 @@ const Searchbar = () => {
       </div>
 
       {errorMessage && <p className="text-red-500 mt-4">{errorMessage}</p>}
+
+      {/* Show message if user is not logged in */}
+      {!session && (
+        <p className="text-red-500 mt-4">You must be logged in to search.</p>
+      )}
     </section>
   );
 };

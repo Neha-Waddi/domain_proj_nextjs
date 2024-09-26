@@ -12,7 +12,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="flex items-center gap-6 mr-2">
-        <Link href="/">
+        <Link href="/home">
           <AiFillHome className="text-3xl" />
         </Link>
         <Link href="/info">
