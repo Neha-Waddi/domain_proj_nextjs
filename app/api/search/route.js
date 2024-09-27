@@ -1,15 +1,13 @@
-import { connectMongodb } from '@/lib/mongodb'; // Assumes you have a MongoDB connection utility
-import UserCredentials from '@/models/user'; // Model for accessing user collection
+import { connectMongodb } from '@/lib/mongodb';
+import UserCredentials from '@/models/user'; 
 
 export const POST = async (req) => {
   try {
-    const { query } = await req.json(); // Get the search query from the request body
+    const { query } = await req.json(); 
     
-    await connectMongodb(); // Connect to MongoDB
-
-    // Search the database for users matching the query (case-insensitive search)
+    await connectMongodb();
     const users = await UserCredentials.find({
-      domainName: { $regex: query, $options: 'i' } // i makes it case-insensitive
+      domainName: { $regex: query, $options: 'i' }
     });
 
     return new Response(JSON.stringify(users), { status: 200 });

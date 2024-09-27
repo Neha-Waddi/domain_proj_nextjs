@@ -1,10 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import { useSession } from "next-auth/react"; // Import useSession hook
+import { useSession } from "next-auth/react"; 
 
 const Searchbar = () => {
-  const { data: session, status } = useSession(); // Access session data
+  const { data: session, status } = useSession(); 
   const [query, setQuery] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -38,9 +38,9 @@ const Searchbar = () => {
     }
   };
 
-  // Check if the user is logged in
+  
   if (status === "loading") {
-    return <p>Loading...</p>; // Show a loading state if checking session
+    return <p>Loading...</p>; 
   }
 
   return (
@@ -64,7 +64,6 @@ const Searchbar = () => {
 
       {errorMessage && <p className="text-red-500 mt-4">{errorMessage}</p>}
 
-      {/* Show message if user is not logged in */}
       {!session && (
         <p className="text-red-500 mt-4">You must be logged in to search.</p>
       )}

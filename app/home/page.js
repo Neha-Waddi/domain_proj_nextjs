@@ -5,11 +5,10 @@ import Link from "next/link";
 import { signOut, useSession } from "next-auth/react";
 
 const Home = () => {
-  const { data: session } = useSession(); // Get session data
+  const { data: session } = useSession(); 
 
   return (
     <div className="flex flex-col items-center justify-center">
-      {/* Display the user's name if available */}
       <h1 className="text-3xl font-bold text-gray-800 mt-8">
         Welcome {session?.user.name}
       </h1>
